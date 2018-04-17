@@ -26,3 +26,31 @@ DisposableBean => destroy 메소드 제공(override)
 
 빈의 Scope
 default singleton
+
+
+
+
+
+외부 파일을 이용한 설정
+1. Environment 객체
+  Context -> getEnvironment() -> Environment -> getPropertySource -> PropertySources
+2. 프로퍼티 파일을 이용한 설정
+xml
+  context:property-placeholder 를 이용 설정 파일 위치를 지정
+  Property 태그를 이용 값 설정
+Java파일
+  java 파일 이용
+  어노테이션 설정
+3. 프로파일 속성을 이용한 설정
+  xml
+    profile 속성 이용
+  Java파일
+    @Configuration
+    @Profile("명")
+
+  
+
+
+
+environmentaware implement 를 통해 environment 객체 받아와서
+initializingBean 생성 시 초기화 해줄 수 있도록 구현.
