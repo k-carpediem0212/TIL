@@ -127,6 +127,68 @@
         - 가용성보다는 보안성을 더 우선시하는 정책
 ```
 
+### (3) Network Layer
+> End Node간 라우팅을 담당
+
+- 특징
+    + 목적지를 찾아가기 위한 논리적인 주소로 IP를 사용
+- 데이터 단위
+    + Packet
+- 주요 장비
+    + Router / L3 Switch
+      * Routing(최적의 경로를 선정해서 패킷을 포워딩 하는 기능)을 담당하는 장비
+      * Data-Link 계층의 BroadCast와 MultiCast를 포워딩 하지 않음
+      * 서로 다른 VLAN간에 통신을 가능 하게 함
+      * 기본적인 보안 기능과 QoS(Quality of Service) 관련 기능을 지원하는 장비
+- 주요 프로토콜
+    + IP, IPX 등
+
+### (4) Transport Layer
+> End Node간 신뢰성있는 데이터 전송을 담당하는 계층
+> Process To Process Communication
+
+- 특징
+    + 목적지를 찾아가기 위해(목적지 프로세스를 식별하기 위해) 논리적인 주소로 TCP/IP에서 Port를 사용
+- 데이터 단위
+    + Segment or Datagram
+- 주요 장비
+    + L4 Switch
+        * SLB(Server Load Balancing) 기능
+            서버 트래픽 부하분산과 Fail Over 기능 제공
+            ```
+              Fail Over
+                장애 발생 시, 예비 시스템으로 자동전환되는 기능
+            ```
+- 주요 프로토콜
+    + TCP, UDP, SCTP, SPX 등
+
+
+```
+** 알아 두기 **
+신뢰성있는 데이터 전송을 보장하기 위한 기능 (TCP 해당)
+  (1) 분할과 재조립
+        원본 데이터를 전송 가능한 Segment 단위로 분할하여 전송
+        목적지에서는 재조합하여 데이터를 복원
+  (2) 연결 제어
+        Connectionless 방식과 Connection-Oriented 방식 제공
+          B. Connection-Oriented
+              마치 물리적으로 연결 통로가 설정되어 있는 것처럼 동작
+              필요한 정보를 주고 받는 연결설정과정과 연결종료과정을 거침
+              대표적으로 TCP
+          B. Connectionless
+              양 호스트 사이에 연결 설정 및 종료과정이 없음
+              대표적으로 UDP
+
+  (3) 흐름 제어
+        상호 간에 수신 가능한 만큼 전송해서 데이터 손실을 방지
+        End Node간 흐름제어(Data-Link 계층은 인접 노드 간 흐름제어)
+  (4) 오류 제어
+        End Node간 전송중 오류 발생 시, 이를 교정
+  (5) 혼잡 제어
+        네트워크 혼잡도를 계산하여 전송량을 제어
+```
+
+
 ***
 ##### 주요 용어 정리
 ```
@@ -144,5 +206,9 @@
     End-Node 사이에서 패킷을 중계해주는 역할을 하는 Node
 6. Sniffing (스니핑)
     네트워크 중간에서 패킷을 도청하는 행위.
+7. Routing (라우팅)
+    목적지로 전송하기 위한 최적의 경로 설정 및 패킷을 교환하는 기능을 제공하는 것
+8. 논리적인 주소
+    변경이 가능한 주소
 ```
 ***
