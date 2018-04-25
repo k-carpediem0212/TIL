@@ -79,9 +79,16 @@ AOP 구현 방식
     3) xml 파일 설정
 
 2. @Asepct Annotation 이용
+    1) AOP 의존 설정
+    2) AOP 클래스 생성
+        @Aspect 어노테이션 이용
+    3) xml 파일 설정
 
 aop:before : 메소드 실행 전에 advice 실행
 aop:after-returning : 정상적으로 메소드 실행 후에 advice 실행
 aop:after-throwing : 메소드 실행중 exception 발생 시 advice 실행
 aop:after : 메소드 실행중 exception이 발생하여도 advice 실행(advice 끝나면 무조건 수행)
 aop:around : 메소드 실행 전/후 및 exception 발생 시 advice 실행(before와 after 합친거)
+
+
+aspectj 문법이 존재
