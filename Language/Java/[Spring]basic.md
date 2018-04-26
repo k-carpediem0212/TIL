@@ -70,7 +70,7 @@ pointcut : JointPoint의 부분으로 실제로 Advice가 적용되는 부분
 Weaving : Advice를 핵심 기능에 적용하는 행위
 
 
-*스프링에서 AOP 구현에는 Proxy를 사용.
+스프링에서 AOP 구현에는 Proxy를 사용.
 
 AOP 구현 방식
 1. XML 스키마 이용
@@ -92,3 +92,9 @@ aop:around : 메소드 실행 전/후 및 exception 발생 시 advice 실행(bef
 
 
 aspectj 문법이 존재
+
+
+
+***
+스프링 MVC
+1. 최초 DispatcherServlet에서 요청을 받음
