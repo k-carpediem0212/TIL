@@ -118,24 +118,44 @@ Initialization on demand holder idiom라는 기법이며, jvm의 class loader �
 <pre>
 <code>
 
-public class SynchronizedSingleton {
-	private static SynchronizedSingleton instance;
-
-	private SynchronizedSingleton() {
+public class InitializationOnDemandHolderIdiom {
+	private InitializationOnDemandHolderIdiom() {
 	}
 
-	// synchronized 키워드를 통한 동기화
-	public static synchronized SynchronizedSingleton getInstance() {
-		if (instance == null) {
-			instance = new SynchronizedSingleton();
-		}
+	// Inner Class에서 InitializationOnDemandHolderIdiom 객체 생성
+	private static class Singleton {
+		private static final InitializationOnDemandHolderIdiom instance = new InitializationOnDemandHolderIdiom();
+	}
 
-		return instance;
+	public static InitializationOnDemandHolderIdiom getInstance() {
+		return Singleton.instance;
 	}
 }
 </code>
 </pre>
 
+이외에도, Enum Class를 활용하여 Singleton 구현도 가능하다. Enum을 통해 구현된 Singleton은 아래와 같은 장점을 가진다.
 
-![Alt text](/path/to/img.jpg)
-![Alt text](/path/to/img.jpg "Optional title")
+
++ Instance가 생성될 때, MultiThread로부터 안전하다. (추가된 method는 안전하지 않을 수 있다.)
++ 단 한번의 Instance 생성을 보장한다.
++ 사용이 간편하다.
++ enum value는 자바 프로그램에서 전역 접근이 가능하다.
+
+Enum Class로 구현된 Singleton Class는 아래와 같다.
+
+<pre>
+<code>
+
+public enum EnumSingleton {
+	INSTANCE;
+
+	public static EnumSingleton getInstance() {
+		return EnumSingleton.INSTANCE;
+
+	}
+}
+</code>
+</pre>
+
+이처럼 다양한 방법으로 Singleton Class 구현이 가능하다.
