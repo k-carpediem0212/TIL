@@ -1,12 +1,17 @@
 # BlockChain
 
 ## 1. BlockChain 이란?
+> Block들의 집합체
+
+> "모든 거래정보를 포함하는 거대한 분산장부"
+
 Genesis Block(최초 블록)부터 시작해서 바로 앞의 Block에 대한 Link를 가지고 있는 Block들로 구성된 LinkedList이다.
 
-BlockChain은 여러 Node에 걸쳐 분산되어 저장 및 관리되며 Block에는 거래 정보가 포함되어 있으므로 Block들의 집합체인 BlockChain은 "모든 거래정보를 포함하는 거대한 분산장부"라고 할 수 있다.
+BlockChain은 여러 Node에 걸쳐 분산되어 저장 및 관리되며 Block에는 거래 정보가 포함되어있다.
 
 ## 2. Block 이란?
-
+"BlockChain의 원소"
+"다수의 거래 정보 묶음"
 
 
 
