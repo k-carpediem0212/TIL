@@ -1,9 +1,11 @@
 # Singleton Pattern
 > 어떤 클래스의 인스턴스가 하나임을 보장하기 위해 사용하는 패턴
 
+
+일반적인 Singleton Pattern 구현 방법은 아래와 같다.
+
 <pre>
 <code>
-
 public class GeneralSingleton {
 	// 자신의 instance를 가지고 있는 변수
 	private static GeneralSingleton instance = new GeneralSingleton();
@@ -25,12 +27,9 @@ public class GeneralSingleton {
   + 클래스 Load 시점에서 객체가 생성되기 때문에 부담스러울수있다.
   + 인스턴스를 생성하는 과정에서 발생하는 어떠한 에러도 처리할수가 없다.
 
-
 아래는 위의 Singleton을 조금 개선한 코드이다.
-
 <pre>
 <code>
-
 public class StaticBlockSingleton {
 	private static StaticBlockSingleton instance;
 
@@ -58,10 +57,9 @@ public class StaticBlockSingleton {
 
 하지만, 여전히 Instance가 클래스 Load 시점에서 생성되고있다.
 
-아래는 Singleton객체를 클래스 Load 시점이 아닌 사용시점에서 생성되도록 수정하였다.
+아래는 Singleton Instance를 클래스 Load 시점이 아닌 사용시점에서 생성되도록 수정하였다.
 <pre>
 <code>
-
 public class LazySingleton {
 	private static LazySingleton instance;
 
@@ -90,7 +88,6 @@ public class LazySingleton {
 아래는 synchronized 키워드를 통해 getInstance()를 동기화하여 MultiThread로부터 보호될 수 있도록 수정하였다.
 <pre>
 <code>
-
 public class SynchronizedSingleton {
 	private static SynchronizedSingleton instance;
 
@@ -116,7 +113,6 @@ Initialization on demand holder idiom라는 기법이며, jvm의 class loader �
 
 <pre>
 <code>
-
 public class InitializationOnDemandHolderIdiom {
 	private InitializationOnDemandHolderIdiom() {
 	}
@@ -135,7 +131,6 @@ public class InitializationOnDemandHolderIdiom {
 
 이외에도, Enum Class를 활용하여 Singleton 구현도 가능하다. Enum을 통해 구현된 Singleton은 아래와 같은 장점을 가진다.
 
-
 + Instance가 생성될 때, MultiThread로부터 안전하다. (추가된 method는 안전하지 않을 수 있다.)
 + 단 한번의 Instance 생성을 보장한다.
 + 사용이 간편하다.
@@ -145,7 +140,6 @@ Enum Class로 구현된 Singleton Class는 아래와 같다.
 
 <pre>
 <code>
-
 public enum EnumSingleton {
 	INSTANCE;
 
